@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 2023_01_03_172404) do
 
   create_table "wizards", force: :cascade do |t|
     t.string "name"
+    t.string "img_url"
     t.string "house_name"
-    t.integer "spell_id"
+    t.string "traits"
   end
 
 end
