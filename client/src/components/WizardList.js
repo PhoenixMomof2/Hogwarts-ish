@@ -6,9 +6,10 @@ const WizardList = ({wizards}) => {
     <div className="wizard-list">
       <br/>
       <ul className="wizard-cards">
-        {wizards.map((wizard) => (
-          <WizardItem key={wizard.id} wizard={wizard} />
-        ))}
+        {wizards.map((wizard) =>{
+          console.log(wizard)
+          // <WizardItem key={wizard.id} wizard={wizard} />
+      })}
       </ul>
     </div>
   );

@@ -5,8 +5,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-const WizardItem = ({wizard: {id, name, img_url, house_name, traits}}) =>
-{
+const WizardItem = (props) => {
+  console.log(props)
+console.log("Hello")
+//{wizard: {id, name, img_url, house_name, traits}}
+
   return (
     <div>
     <Card key={id} sx={{ maxWidth: 345 }}>

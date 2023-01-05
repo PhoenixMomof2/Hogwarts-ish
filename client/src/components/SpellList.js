@@ -1,30 +1,20 @@
 import React from "react";
-import SpellItem from "./SpellItem";
 
-const SpellList = () => {
+const SpellList = ({spells}) => {
   
+  // if (!spells) return <h2>Loading spell data...</h2>;
 
   return (
-    <div>
-      {spells((spell) => (
-        <SpellItem key={spell_id} spell={spell} />
+    <div className="spell-list">
+      <h1>List of Spells</h1>
+      {spells.map((spell) => (
+          <div>
+            <h2>{spell.name}</h2>
+            <p>Impact: {spell.spell_impact}</p>
+          </div>
       ))}
     </div>
   );
 }
-// const SpellList = ({spells}) => {
-  
-//   return (
-//     <div className="spell-list">
-//       <br/>
-//       <br/>
-//       <ul className="spell-cards">
-//         {spells.map((spell) => (
-//           <SpellItem key={spell.id} spell={spell} />
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
 
 export default SpellList;

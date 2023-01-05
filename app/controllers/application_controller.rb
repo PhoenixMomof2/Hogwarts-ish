@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/spells' do
-    spells = Spell.all
+    spells = Spell.all.order(:name)
     spells.to_json
     end
 
@@ -17,7 +17,8 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/wizards/:id' do
-    "I will be victorious!"
+      wizards = Wizard.find(params[:id])
+      wizards.to_json(include: :spells)
     end
 
     get 'spells/:spell_id' do
