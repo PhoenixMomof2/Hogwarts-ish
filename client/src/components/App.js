@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import WizardList from "./WizardList";
-import WizardItem from "./WizardItem";
 import SpellList from "./SpellList";
 
 const App = () => {
@@ -16,21 +15,14 @@ const App = () => {
       .then((wizards) => setWizards(wizards));
   }, []);
 
-  // const [spells, setSpells] = useState([]);
-  
-  // useEffect(() => {
-  //   console.log("Inside useEffect")
-  //   fetch("http://localhost:9292/spells")
-  //     .then((res) => res.json())
-  //     .then((spells) => setSpells(spells));
-  // }, []);
+  const [spells, setSpells] = useState([]);
 
-  // useEffect(() => {
-  //   console.log("Inside useEffect")
-  //   fetch("http://localhost:9292/wizards/:id")
-  //     .then((res) => res.json())
-  //     .then((wizards) => setWizards(wizards));
-  // }, []);
+  useEffect(() => {
+    console.log("Inside useEffect")
+    fetch("http://localhost:9292/spells")
+      .then((res) => res.json())
+      .then((spells) => setSpells(spells));
+  }, []);
 
   return (
     <div>
@@ -40,14 +32,11 @@ const App = () => {
           <Home />
         </Route>
         <Route exact path="/wizards">
-          <WizardList wizards={wizards} />
+          <WizardList wizards={wizards}/>
         </Route>
-        <Route exact path="/wizards/:id">
-          {/* <WizardItem wizard={wizards.id} /> */}
-        </Route>
-        {/* <Route path="/spells">
+        <Route exact path="/spells">
           <SpellList spells={spells} />
-        </Route> */}
+        </Route>
       </Switch>
     </div>
   );

@@ -1,15 +1,19 @@
 import React from 'react'
-import WizardItem from './WizardItem'
+import WizardCard from './WizardCard';
 
 const WizardList = ({wizards}) => {
+  console.log("WizardList is rendering.....sort of?")
+
   return (
     <div className="wizard-list">
-      <br/>
-      <ul className="wizard-cards">
-        {wizards.map((wizard) =>{
-          console.log(wizard)
-          // <WizardItem key={wizard.id} wizard={wizard} />
-      })}
+      <ul>
+        {wizards.map((wizard) => (
+          <div key={wizard.id}>
+            <li>
+              <WizardCard wizard={wizard}/>
+           </li>
+          </div>
+        ))}
       </ul>
     </div>
   );

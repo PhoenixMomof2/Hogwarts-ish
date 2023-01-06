@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2023_01_03_172404) do
   create_table "spells", force: :cascade do |t|
     t.string "name"
     t.string "spell_impact"
+    t.integer "point_value"
     t.integer "wizard_id"
   end
 

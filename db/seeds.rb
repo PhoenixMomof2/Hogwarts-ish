@@ -24,16 +24,16 @@ riddle = Wizard.create(name: "Tom Riddle", img_url: "https://i.stack.imgur.com/4
 
 puts "Creating spells..."
 Spell.create([
-  {name: "Papyrus Reparo", spell_impact: "Mends torn pieces of paper.", wizard_id: 1}, 
-  {name: "Deletrius", spell_impact: "Counter-charm to the Reverse Spell, vanishing the image of the last spell cast. It may also disintegrate other certain images.", wizard_id: 1},
-  {name: "Ascendio", spell_impact: "Lifts the caster high into the air. The charm also works underwater, propelling the caster above the surface.", wizard_id: 1},
-  {name: "Avada Kedavra", spell_impact: "Causes instantaneous death. It is accompanied by a flash of green light and a rushing noise.", wizard_id: 2},
-  {name: "Magicus Extremos", spell_impact: "Partnership-based charm that temporarily increases the casters' spell power.", wizard_id: 2},
-  {name: "Sectumsempra", spell_impact: "Lacerates the target, as if they have been slashed by a sword. Subsequently, the target can easily bleed to death from the wounds.", wizard_id: 2},
-  {name: "Lacarnum Inflamari", spell_impact: "Ignites cloaks.", wizard_id: 3},
-  {name: "Waddiwasi", spell_impact: "Used to shoot small, soft masses of whatever the caster so desires at the target", wizard_id: 3},
-  {name: "Bat-Bogey Hex", spell_impact: "Transforms the target's bogeys into large bats that fly out of the victim's nose.", wizard_id: 3},
-  {name: "Calvorio", spell_impact: "Removes the victim's hair.", wizard_id: 4}
+  {name: "Papyrus Reparo", spell_impact: "Mends torn pieces of paper.", point_value: 2, wizard_id: 1}, 
+  {name: "Deletrius", spell_impact: "Counter-charm to the Reverse Spell, vanishing the image of the last spell cast. It may also disintegrate other certain images.", point_value: 4, wizard_id: 1},
+  {name: "Ascendio", spell_impact: "Lifts the caster high into the air. The charm also works underwater, propelling the caster above the surface.", point_value: 3, wizard_id: 1},
+  {name: "Avada Kedavra", spell_impact: "Causes instantaneous death. It is accompanied by a flash of green light and a rushing noise.", point_value: 5, wizard_id: 2},
+  {name: "Magicus Extremos", spell_impact: "Partnership-based charm that temporarily increases the casters' spell power.", point_value: 5, wizard_id: 2},
+  {name: "Sectumsempra", spell_impact: "Lacerates the target, as if they have been slashed by a sword. Subsequently, the target can easily bleed to death from the wounds.", point_value: 4, wizard_id: 2},
+  {name: "Lacarnum Inflamari", spell_impact: "Ignites cloaks.", point_value: 3, wizard_id: 3},
+  {name: "Waddiwasi", spell_impact: "Used to shoot small, soft masses of whatever the caster so desires at the target", point_value: 4, wizard_id: 3},
+  {name: "Bat-Bogey Hex", spell_impact: "Transforms the target's bogeys into large bats that fly out of the victim's nose.", point_value: 2, wizard_id: 3},
+  {name: "Calvorio", spell_impact: "Removes the victim's hair.", point_value: 3, wizard_id: 4}
 ])
 
 puts "✅ Done seeding!"
