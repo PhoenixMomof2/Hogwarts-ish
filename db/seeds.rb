@@ -33,7 +33,11 @@ Spell.create([
   {name: "Lacarnum Inflamari", spell_impact: "Ignites cloaks.", point_value: 3, wizard_id: 3},
   {name: "Waddiwasi", spell_impact: "Used to shoot small, soft masses of whatever the caster so desires at the target", point_value: 4, wizard_id: 3},
   {name: "Bat-Bogey Hex", spell_impact: "Transforms the target's bogeys into large bats that fly out of the victim's nose.", point_value: 2, wizard_id: 3},
-  {name: "Calvorio", spell_impact: "Removes the victim's hair.", point_value: 3, wizard_id: 4}
+  {name: "Calvorio", spell_impact: "Removes the victim's hair.", point_value: 3, wizard_id: 4},
+  {name: "Carpe Retractum", spell_impact: "Produces a rope of light used to pull the caster towards the target.", point_value: 4, wizard_id: 4},
+  {name: "Cascading Jinx", spell_impact: "Attacks multiple opponents in close proximity to each other.", point_value: 4, wizard_id: 5},
+  {name: "Immobulus", spell_impact: "Immobilizes and stops the actions of the target. It works both on linving and inanimate things.", point_value: 4, wizard_id: 6},
+  {name: "Imperio", spell_impact: "Places the victim completely under the caster's control.  The victim is put into a tance-like state, and becomes very suggestible to the commands of the caster.", point_value: 5, wizard_id: 6}
 ])
 
 puts "✅ Done seeding!"

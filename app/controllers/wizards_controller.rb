@@ -8,4 +8,9 @@ class WizardsController < ApplicationController
       wizards = Wizard.find(params[:id])
       wizards.to_json(include: :spells)
     end
+
+    post '/wizards' do
+      new_wizard = Wizard.create(name: params[:name]), img_url: params[:img_url], house_name: params[:house_name], traits: params[:traits])
+      new_wizard.to_json 
+    end
 end
