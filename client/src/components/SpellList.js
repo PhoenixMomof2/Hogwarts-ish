@@ -1,8 +1,9 @@
 import React from "react";
 
 const SpellList = ({spells}) => {
-  console.log("SpellList is working?")
-  // if (!spells) return <h2>Loading spell data...</h2>;
+  console.log("Rendering SpellList")
+
+  if (!spells) return <h2>Loading spell data...</h2>;
 
   return (
     <div className="spell-list">

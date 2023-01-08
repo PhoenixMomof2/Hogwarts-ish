@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
-import WizardList from "./WizardList";
+import WizardCard from "./WizardCard";
 import SpellList from "./SpellList";
 
 const App = () => {
   const [wizards, setWizards] = useState([]);
+  // const [newWizardForm, setNewWizardForm] = useState(false)
 
   useEffect(() => {
     console.log("Inside useEffect")
@@ -32,7 +33,7 @@ const App = () => {
           <Home />
         </Route>
         <Route exact path="/wizards">
-          <WizardList wizards={wizards}/>
+          <WizardCard wizards={wizards}/>
         </Route>
         <Route exact path="/spells">
           <SpellList spells={spells} />

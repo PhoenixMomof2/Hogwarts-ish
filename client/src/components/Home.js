@@ -5,7 +5,7 @@ const Home = () => {
     <div>
       <h1>Hogwarts-Ish</h1>
       <hr/>
-      <p id="about">The game of spells and charms where Hogwarts students can practice the art of the duel.</p>
+      <p id="home">The game of spells and charms where Hogwarts students can practice the art of the duel.</p>
     </div>
   )
 }
