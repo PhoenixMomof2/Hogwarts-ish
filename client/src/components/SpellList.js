@@ -7,9 +7,9 @@ const SpellList = ({spells}) => {
 
   return (
     <div className="spell-list">
-      <h2>List of Spells</h2>
+      <h1>List of Spells</h1>
       {spells.map((spell) => (
-          <div key={spell.id}>
+          <div className="spell-block" key={spell.id}>
             <h3>{spell.name}</h3>
             <p>Impact: {spell.spell_impact}</p>
           </div>
