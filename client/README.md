@@ -1,3 +1,7 @@
+Dropdown menu with the existing spells.
+Find spell by id and crea
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -21,28 +21,4 @@ const WizardCard = ({wizards}) => {
 
 export default WizardCard;
 
-// ASSIGN A SPELL TO A WIZARD FORM IDEA
-// import {useParams} from 'react-router-dom';
 
-// const Wizard = () => {
-  // const [wizard, setWizard] = useState({
-  //   spells: []
-  // })
-
-//   const [spellForm, setSpellForm] = useState(false)
-
-// const params = useParams();
-// useEffect(() => {
-//   fetch(`http://locallhost:9292/owners/${params.id}`)
-//   .then(res => res.json())
-//   .then (data => {
-//     console.log(data)
-//   })
-// }, [])
-
-// return (
-//   <div>
-//     <h3>I am your wizard!</h3>
-//   </div>
-// )
-// }

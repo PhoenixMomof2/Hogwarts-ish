@@ -34,7 +34,7 @@ const App = () => {
           <Home />
         </Route>
         <Route exact path="/wizards">
-          {/* <WizardCard wizards={wizards} /> */}
+          {/* <WizardAlbum wizards={wizards} /> */}
           <WizardCard wizards={wizards} />
         </Route>
         <Route exact path="/spells">
