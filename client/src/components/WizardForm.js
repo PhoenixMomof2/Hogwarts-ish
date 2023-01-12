@@ -14,20 +14,16 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
     e.preventDefault();
 
     const newWizardData = {
-      wizard_name,
+      name: wizard_name,
       img_url,
       house_name,
       traits,
     };
 
-    const newSpellData = {
-      spell_name,
-      spell_impact,
-      point_value,
-    }
+    
 
     console.log(newWizardData);
-    console.log(newSpellData);
+   
 
 
       fetch("http://localhost:9292/wizards", {
@@ -38,17 +34,28 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
         body: JSON.stringify(newWizardData),
       })
         .then((res) => res.json())
-        .then((newWizard) => handleAddNewWizard(newWizard)); // update state
-        
-        fetch("http://localhost:9292/spells", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newSpellData),
-    })
-      .then((res) => res.json())
-      .then((newSpell) => handleAddNewSpell(newSpell)); // update state
+        .then((newWizard) => {
+          handleAddNewWizard(newWizard)
+          const newSpellData = {
+            name: spell_name,
+            spell_impact,
+            point_value,
+            wizard_id: newWizard.id,
+          }
+          // create key value pair so new data can go to schema correctly
+          console.log(newSpellData);
+          fetch("http://localhost:9292/spells", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newSpellData),
+          })
+            .then((res) => res.json())
+            .then((newSpell) => handleAddNewSpell(newSpell)); // update state
+
+        }); // update state
+      
 
         // clear form
         setWizard_Name("");

@@ -48,7 +48,7 @@ import { NavLink } from "react-router-dom";
           background: "yellow",
         }}
       >
-        Creat A Wizard
+        Create A Wizard
       </NavLink>
     </div>
   );
