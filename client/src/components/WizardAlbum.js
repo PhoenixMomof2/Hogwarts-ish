@@ -1,11 +1,15 @@
 import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -17,10 +21,18 @@ const WizardAlbum = ({wizards}) => {
   return (
   <ThemeProvider theme={theme}>
     <CssBaseline />
+    <AppBar position="relative">
+        <Toolbar>
+          <Typography variant="h6" color="inherit" noWrap>
+            Album layout
+          </Typography>
+        </Toolbar>
+    </AppBar>
       <main>
+        {/* Hero unit */}
         <Box
           sx={{
-            bcolor: 'background.paper',
+            bgcolor: 'background.paper',
             pt: 8,
             pb: 6,
           }}
@@ -49,10 +61,8 @@ const WizardAlbum = ({wizards}) => {
           {/* End hero unit */}
           <Grid container spacing={2}>
             {wizards.map((wizard) => (
-              <Grid item key={wizard.id} xs={6} sm={3} md={2}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
+              <Grid xs={6} sm={3} md={2}>
+                <Card key={wizard.id} sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                   <CardMedia
                     component="img"
                     sx={{
@@ -67,12 +77,16 @@ const WizardAlbum = ({wizards}) => {
                       {wizard.name}
                     </Typography>
                     <Typography>
-                      {wizard.house_name}
+                      House: {wizard.house_name}
                     </Typography>
                     <Typography>
-                      {wizard.traits}
+                      Traits: {wizard.traits}
                     </Typography>
                   </CardContent>
+                  <CardActions>
+                    <Button size="small">Select</Button>
+                    <Button size="small">See Spells</Button>
+                  </CardActions>
                 </Card>
               </Grid>
             ))}

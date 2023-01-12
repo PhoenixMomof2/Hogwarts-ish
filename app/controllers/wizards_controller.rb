@@ -21,8 +21,8 @@ class WizardsController < ApplicationController
     end
 
     patch '/wizards/:id' do
-      review = Wizard.find(params[:id])
-      review.update(
+      wizard = Wizard.find(params[:id])
+      wizard.update(
         name: params[:name], 
         img_url: params[:img_url], 
         house_name: params[:house_name], 

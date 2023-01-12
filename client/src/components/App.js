@@ -4,11 +4,12 @@ import NavBar from "./NavBar";
 // import WizardAlbum from "./WizardAlbum";
 import Home from "./Home";
 import WizardCard from "./WizardCard";
+import WizardForm from "./WizardForm"
 import SpellList from "./SpellList";
 
 const App = () => {
   const [wizards, setWizards] = useState([]);
-  // const [newWizardForm, setNewWizardForm] = useState(false)
+  const [spells, setSpells] = useState([]);
 
   useEffect(() => {
     console.log("Fetch all wizards!")
@@ -17,14 +18,20 @@ const App = () => {
       .then((wizards) => setWizards(wizards));
   }, []);
 
-  const [spells, setSpells] = useState([]);
-
   useEffect(() => {
     console.log("Fetch all spells!")
     fetch("http://localhost:9292/spells")
       .then((res) => res.json())
       .then((spells) => setSpells(spells));
   }, []);
+
+  function handleAddNewWizard(newWizard) {
+    setWizards([...wizards, newWizard]); // Updating wizards state.
+  }
+
+  function handleAddNewSpell(newSpell) {
+    setSpells([...spells, newSpell]); // Updating spells state.
+  }
 
   return (
     <div>
@@ -39,6 +46,9 @@ const App = () => {
         </Route>
         <Route exact path="/spells">
           <SpellList spells={spells} />
+        </Route>
+        <Route exact path="/newWizard">
+          <WizardForm handleAddNewWizard={handleAddNewWizard} handleAddNewSpell={handleAddNewSpell} />
         </Route>
       </Switch>
     </div>

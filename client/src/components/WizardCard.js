@@ -1,3 +1,12 @@
+// import React from 'react'
+
+// const WizardCard = () => {
+//   return (
+//     <div>WizardCard</div>
+//   )
+// }
+
+// export default WizardCard
 import React from 'react'
 
 const WizardCard = ({wizards}) => {

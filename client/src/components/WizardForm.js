@@ -10,32 +10,55 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
   const [spell_impact, setSpell_Impact] = useState("");
   const [point_value, setPoint_Value] = useState("");
   
-  const handleSubmit = (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
+
     const newWizardData = {
-      name,
+      wizard_name,
       img_url,
       house_name,
       traits,
     };
-    // console.log(newWizardData);
 
-    fetch("http://localhost:9292/wizards", {
+    const newSpellData = {
+      spell_name,
+      spell_impact,
+      point_value,
+    }
+
+    console.log(newWizardData);
+    console.log(newSpellData);
+
+
+      fetch("http://localhost:9292/wizards", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newWizardData),
+      })
+        .then((res) => res.json())
+        .then((newWizard) => handleAddNewWizard(newWizard)); // update state
+        
+        fetch("http://localhost:9292/spells", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newWizardData),
+      body: JSON.stringify(newSpellData),
     })
       .then((res) => res.json())
-      .then((newWizard) => handleAddNewWizard(newWizard)); // update state
-      // clear form
-      setWizard_Name("");
-      setImg_Url("");
-      setHouse_Name("");
-      setTraits("");
-  };
-  
+      .then((newSpell) => handleAddNewSpell(newSpell)); // update state
+
+        // clear form
+        setWizard_Name("");
+        setImg_Url("");
+        setHouse_Name("");
+        setTraits("");
+        setSpell_Name("");
+        setSpell_Impact("");
+        setPoint_Value("");
+      };
 
   return (
     <div>
@@ -49,15 +72,15 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
             id="new-wizard-name"
             placeholder="Enter Wizard Name"
             value={wizard_name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setWizard_Name(e.target.value)}
           />
         </div>
         <br />
         <div>
-          <label htmlFor="category">Join A House</label>
+          <label htmlFor="assign-house">Join A House</label>
           <input
             type="text"
-            id="category"
+            id="assign-house"
             placeholder="Choose House"
             value={house_name}
             onChange={(e) => setHouse_Name(e.target.value)}
@@ -81,7 +104,7 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
             type="text"
             id="traits"
             placeholder="Enter New Wizard Traits"
-            value={description}
+            value={traits}
             onChange={(e) => setTraits(e.target.value)}
           />
         </div>
@@ -127,30 +150,3 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
 };
 
 export default WizardForm;
-
-
-// ASSIGN A SPELL TO A WIZARD FORM IDEA
-// import {useParams} from 'react-router-dom';
-
-// const Wizard = () => {
-  // const [wizard, setWizard] = useState({
-  //   spells: []
-  // })
-
-//   const [spellForm, setSpellForm] = useState(false)
-
-// const params = useParams();
-// useEffect(() => {
-//   fetch(`http://locallhost:9292/owners/${params.id}`)
-//   .then(res => res.json())
-//   .then (data => {
-//     console.log(data)
-//   })
-// }, [])
-
-// return (
-//   <div>
-//     <h3>I am your wizard!</h3>
-//   </div>
-// )
-// }

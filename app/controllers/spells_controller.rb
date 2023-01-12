@@ -14,6 +14,6 @@ class SpellsController < ApplicationController
             # how do I do the form so the user can attach 
             # the new spell to the wizard
         )
-        wizard.to_json 
+        spell.to_json 
     end
 end
