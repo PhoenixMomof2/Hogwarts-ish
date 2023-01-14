@@ -8,25 +8,20 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
   const [traits, setTraits] = useState("");
   const [spell_name, setSpell_Name] = useState("");
   const [spell_impact, setSpell_Impact] = useState("");
-  const [point_value, setPoint_Value] = useState("");
+  const [point_value, setPoint_Value] = useState({ point_value: "1" });
   
   const handleSubmit =  (e) => {
     e.preventDefault();
 
     const newWizardData = {
-      name: wizard_name,
+      wizard_name,
       img_url,
       house_name,
       traits,
     };
-
-    
-
     console.log(newWizardData);
    
-
-
-      fetch("http://localhost:9292/wizards", {
+      fetch("http://localhost:9292/wizards/new", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +32,7 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
         .then((newWizard) => {
           handleAddNewWizard(newWizard)
           const newSpellData = {
-            name: spell_name,
+            spell_name,
             spell_impact,
             point_value,
             wizard_id: newWizard.id,
@@ -53,10 +48,8 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
           })
             .then((res) => res.json())
             .then((newSpell) => handleAddNewSpell(newSpell)); // update state
-
-        }); // update state
+        });
       
-
         // clear form
         setWizard_Name("");
         setImg_Url("");
@@ -139,18 +132,23 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
         </div>
         <br />
         <div>
-          <label htmlFor="new-spell-point-value">Spell Point Value</label>
-          <input
-            type="text"
+        <label htmlFor="new-spell-point-value">Spell Impact</label>
+          <select
+            name="new-spell-point-value"
             id="new-spell-point-value"
             placeholder="Enter Spell Point Value"
-            value={point_value}
             onChange={(e) => setPoint_Value(e.target.value)}
-          />
+             >
+            <option point_value="1">1</option>
+            <option point_value="1">2</option>
+            <option point_value="3">3</option>
+            <option point_value="4">4</option>
+            <option point_value="5">5</option>
+          </select>
         </div>
         <br />
         <label htmlFor="submit">Create New Wizard</label>
-        <input type="submit" value="Submit" />
+        <input type="submit" name="submit" value="Submit" className="submit" />
       </form>
     </div>
   );

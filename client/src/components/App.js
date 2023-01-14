@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
-// import WizardAlbum from "./WizardAlbum";
 import Home from "./Home";
 import WizardCard from "./WizardCard";
 import WizardForm from "./WizardForm"
@@ -32,23 +31,24 @@ const App = () => {
   function handleAddNewSpell(newSpell) {
     setSpells([...spells, newSpell]); // Updating spells state.
   }
-
+  
   return (
     <div>
       <NavBar />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/wizards">
-          {/* <WizardAlbum wizards={wizards} /> */}
+        <Route path="/wizards">
+          {/* <WizardCard wizards={wizards} handleEditWizard={handleEditWizard}  handleDeleteWizard={handleDeleteWizard}/> */}
           <WizardCard wizards={wizards} />
         </Route>
-        <Route exact path="/spells">
+        <Route path="/spells">
+          {/* <SpellList spells={spells} handleEditSpell={handleEditSpell} handleDeleteSpell={handleDeleteSpell}/> */}
           <SpellList spells={spells} />
         </Route>
-        <Route exact path="/newWizard">
+        <Route path="/wizards/new"> 
           <WizardForm handleAddNewWizard={handleAddNewWizard} handleAddNewSpell={handleAddNewSpell} />
+        </Route>
+        <Route exact path="/home">
+          <Home />
         </Route>
       </Switch>
     </div>
