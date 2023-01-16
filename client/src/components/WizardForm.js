@@ -1,27 +1,30 @@
 import React, { useState } from "react";
 
 const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
- 
+
   const [wizard_name, setWizard_Name] = useState("");
-  const [img_url, setImg_Url] = useState("");
   const [house_name, setHouse_Name] = useState("");
+  const [img_url, setImg_Url] = useState("");
   const [traits, setTraits] = useState("");
   const [spell_name, setSpell_Name] = useState("");
   const [spell_impact, setSpell_Impact] = useState("");
-  const [point_value, setPoint_Value] = useState({ point_value: "1" });
+  const [point_value, setPoint_Value] = useState("");
   
+  
+  // SUBMIT FORM
   const handleSubmit =  (e) => {
     e.preventDefault();
 
     const newWizardData = {
       wizard_name,
-      img_url,
       house_name,
+      img_url,
       traits,
     };
     console.log(newWizardData);
    
-      fetch("http://localhost:9292/wizards/new", {
+    //CREATE
+      fetch("http://localhost:9292/wizards", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,8 +55,8 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
       
         // clear form
         setWizard_Name("");
-        setImg_Url("");
         setHouse_Name("");
+        setImg_Url("");
         setTraits("");
         setSpell_Name("");
         setSpell_Impact("");
@@ -64,9 +67,9 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
     <div>
       <br />
       <h2>Create A Wizard!</h2>
-      <form className="NewWizard" onSubmit={handleSubmit}>
+      <form className="create-new-wizard" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="new-wizard-name">Wizard Name</label>
+          <label htmlFor="new-wizard-name">Wizard Name   </label>
           <input
             type="text"
             id="new-wizard-name"
@@ -77,18 +80,22 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
         </div>
         <br />
         <div>
-          <label htmlFor="assign-house">Join A House</label>
-          <input
+          <label htmlFor="assign-house">   Join A House   </label>
+          <select
             type="text"
             id="assign-house"
-            placeholder="Choose House"
             value={house_name}
             onChange={(e) => setHouse_Name(e.target.value)}
-          />
+            >
+            <option house_name="Gryffindor">   Gryffindor</option>
+            <option house_name="Hufflepuff">   Hufflepuff</option>
+            <option house_name="Ravenclaw">   Ravenclaw</option>
+            <option house_name="Slytherin">   Slytherin</option>
+          </select>
         </div>
         <br />
         <div>
-          <label htmlFor="img_url">New Wizard Image Source</label>
+          <label htmlFor="img_url">   New Wizard Image Source   </label>
           <input
             type="text"
             id="img_url"
@@ -99,7 +106,7 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
         </div>
         <br />
         <div>
-          <label htmlFor="traits">New Wizard Traits</label>
+          <label htmlFor="traits">   New Wizard Traits   </label>
           <input
             type="text"
             id="traits"
@@ -110,7 +117,7 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
         </div>
         <br />
         <div>
-          <label htmlFor="new-spell-name">Spell Name</label>
+          <label htmlFor="new-spell-name">   Spell Name   </label>
           <input
             type="text"
             id="new-spell-name"
@@ -121,7 +128,7 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
         </div>
         <br />
         <div>
-          <label htmlFor="new-spell-impact">Spell Impact</label>
+          <label htmlFor="new-spell-impact">   Spell Impact   </label>
           <input
             type="text"
             id="new-spell-impact"
@@ -132,22 +139,22 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
         </div>
         <br />
         <div>
-        <label htmlFor="new-spell-point-value">Spell Impact</label>
+        <label htmlFor="new-spell-point-value">   Spell Point Value   </label>
           <select
-            name="new-spell-point-value"
+            type="text"
             id="new-spell-point-value"
-            placeholder="Enter Spell Point Value"
+            value={point_value}
             onChange={(e) => setPoint_Value(e.target.value)}
-             >
-            <option point_value="1">1</option>
-            <option point_value="1">2</option>
-            <option point_value="3">3</option>
-            <option point_value="4">4</option>
-            <option point_value="5">5</option>
+            >
+            <option point_value="1"> 1 </option>
+            <option point_value="1"> 2 </option>
+            <option point_value="3"> 3 </option>
+            <option point_value="4"> 4 </option>
+            <option point_value="5"> 5 </option>
           </select>
         </div>
         <br />
-        <label htmlFor="submit">Create New Wizard</label>
+        <label htmlFor="submit">   Create New Wizard   </label>
         <input type="submit" name="submit" value="Submit" className="submit" />
       </form>
     </div>

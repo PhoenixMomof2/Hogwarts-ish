@@ -2,10 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
     const linkStyles = {
-      display: "inline",
-      width: "50px",
+      display: "centered",
+      width: "200px",
       padding: "12px",
-      margin: "0 6px 6px",
+      margin: "6px 6px 6px",
       background: "lightblue",
       textDecoration: "none",
       color: "black",
@@ -13,7 +13,7 @@ import { NavLink } from "react-router-dom";
     
      const NavBar = () => {
       return (
-    <div>
+    <div className="navbar">
       <NavLink
         to="/home"
         style={linkStyles}

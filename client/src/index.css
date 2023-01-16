@@ -1,51 +1,74 @@
 body {
   margin: 0;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: sans-serif;
+}
+
+.navbar{
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2
+}
+
+.create-new-wizard{
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
 .wizard-card {
+  width: 320px;
+  padding: 10px;
+  border: 1px solid gray;
+  margin: 0;
   text-align: center;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 15rem;
-  height: 25rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-  box-shadow: 3px 4px #e04b52;
+  display: left;
 }
 
-.wizard-image {
+img.wizard-image {
   justify-self: center;
-  height: 12rem;
-  width: auto;
+  height: 263px;
+  width: 350px;
 }
 
-button {
-  position: relative;
-  background-color: #e04b52;
-  border: none;
-  border-radius: 5px;
-  height: 3rem;
-  width: max-content;
-  color: whitesmoke;
-  font-size: 18px;
-  justify-self: center;
+img.home {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border-radius: 8px;
 }
 
-.buttonContainer {
-  text-align: center;
-  padding: 1rem;
+.btn-group button {
+  background-color: #0465aa; 
+  border: 1px solid #0465aa; 
+  color: white; /* White text */
+  padding: 10px 10px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  display: center;
+}
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
-button:hover {
-  background-color: whitesmoke;
-  border: #e04b52 solid 1px;
-  color: #e04b52;
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
 }
 
 .submit {
   position: relative;
-  background-color: #e04b52;
+  background-color: #136d17;
   border-radius: 5px;
   height: 2rem;
   width: max-content;
@@ -58,8 +81,8 @@ button:hover {
 
 .submit:hover {
   background-color: whitesmoke;
-  border: #e04b52 solid 1px;
-  color: #e04b52;
+  border: #e45d27 solid 1px;
+  color: #e45d27;
 }
 
 .input-text {
@@ -72,9 +95,19 @@ button:hover {
 }
 
 p {
-  margin: 0.5rem 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 80px;
+  margin-left: 80px;
   font-size: 20px;
   text-align: justify;
+}
+
+p.wizard-card {
+  font-size: 20px;
+  text-align: left;
+  width: 350px;
+  margin: 0;
 }
 
 #about {
@@ -91,14 +124,32 @@ h1 {
 h2 {
   color:#0930de;
   margin: 0.5rem 0;
-  font-size: 50px;
-  text-align: center
+  font-size: 30px;
+  text-align: left;
 }
 
+h3 {
+  color:#f01111;
+  margin: 0.5rem 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+h3.spell-item {
+  color:#f01111;
+  margin: 0.5rem 0;
+  font-size: 20px;
+  text-align: left;
+}
 li {
   display: inline;
 }
 
-div.spell-block {
-  border-style: solid;
-}
+/* div.spell-list {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 80px;
+  margin-left: 80px;
+  font-size: 20px;
+} */
+

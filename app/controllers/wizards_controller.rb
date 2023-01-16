@@ -1,7 +1,7 @@
 class WizardsController < ApplicationController
 
     get '/wizards' do
-      wizards = Wizard.all.order(:name)
+      wizards = Wizard.all
       wizards.to_json
     end
 
@@ -12,28 +12,27 @@ class WizardsController < ApplicationController
 
     post '/wizards' do
       wizard = Wizard.create(
-        name: params[:name], 
-        img_url: params[:img_url], 
+        wizard_name: params[:wizard_name], 
         house_name: params[:house_name], 
+        img_url: params[:img_url], 
         traits: params[:traits]
       )
       wizard.to_json 
     end
 
-    patch '/wizards/:id' do
-      wizard = Wizard.find(params[:id])
-      wizard.update(
-        name: params[:name], 
-        img_url: params[:img_url], 
-        house_name: params[:house_name], 
-        traits: params[:traits]
-      )
-      wizard.to_json
-    end
-
     delete '/wizards/:id' do
       wizard = Wizard.find(params[:id])
       wizard.destroy
+    end
+
+    patch '/wizards/:id' do
+      wizard = Wizard.find(params[:id])
+      wizard.update(
+        wizard_name: params[:wizard_name], 
+        house_name: params[:house_name], 
+        img_url: params[:img_url], 
+        traits: params[:traits]
+      )
       wizard.to_json
     end
 
