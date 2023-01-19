@@ -1,19 +1,21 @@
 import React from 'react'
 import WizardCard from './WizardCard'
 
-function WizardList({wizards}) {
+function WizardList({wizards, handleEditWizard, handleDeleteWizard }) {
+
   return (
-    <div className="wizard-list">
+    // history.push(`/wizards/${id}`)
+    <div>
       <br/>
-      <br/>
-      <ul className="wizard-cards">
         {wizards.map((wizard) => (
-          <WizardCard key={wizard.id} wizard={wizard} />
+        <div key={wizard.id}>
+          <br/>
+            <WizardCard key={wizard.id} wizard={wizard} handleDeleteWizard={handleDeleteWizard} handleEditWizard={handleEditWizard}/>
+          <br/>
+        </div>
         ))}
-      </ul>
     </div>
   )
-}
-
+};
 export default WizardList;
 

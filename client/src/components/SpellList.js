@@ -10,9 +10,9 @@ const SpellList = ({spells}) => {
       <h1>List of Spells</h1>
       {spells.map((spell) => (
           <div className="spell-item" key={spell.id}>
-            <h3>Spell: {spell.spell_name}</h3>
-            <p>Impact: {spell.spell_impact}</p>
-            <p>Points: {spell.point_value}</p>
+            <h2 className="spell-item">Spell: {spell.spell_name}</h2>
+            <p className="spell-item">Impact: {spell.spell_impact}</p>
+            <p className="spell-item">Points: {spell.point_value}</p>
           </div>
       ))}
     </div>

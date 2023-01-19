@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
+const history = useHistory();
 
   const [wizard_name, setWizard_Name] = useState("");
   const [house_name, setHouse_Name] = useState("");
@@ -9,7 +11,6 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
   const [spell_name, setSpell_Name] = useState("");
   const [spell_impact, setSpell_Impact] = useState("");
   const [point_value, setPoint_Value] = useState("");
-  
   
   // SUBMIT FORM
   const handleSubmit =  (e) => {
@@ -23,7 +24,7 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
     };
     console.log(newWizardData);
    
-    //CREATE
+    //CREATE (POST REQUEST)
       fetch("http://localhost:9292/wizards", {
         method: "POST",
         headers: {
@@ -51,6 +52,7 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
           })
             .then((res) => res.json())
             .then((newSpell) => handleAddNewSpell(newSpell)); // update state
+            history.push('/wizards')
         });
       
         // clear form
@@ -64,7 +66,7 @@ const WizardForm = ({handleAddNewWizard, handleAddNewSpell}) => {
       };
 
   return (
-    <div>
+    <div className="create-new-wizard">
       <br />
       <h2>Create A Wizard!</h2>
       <form className="create-new-wizard" onSubmit={handleSubmit}>

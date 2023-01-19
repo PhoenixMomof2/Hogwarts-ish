@@ -1,3 +1,3 @@
 class Spell < ActiveRecord::Base
-  belongs_to :wizard
+  belongs_to :wizard 
 end

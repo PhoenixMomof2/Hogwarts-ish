@@ -1,6 +1,27 @@
-body {
+body{
+  background-color: rgb(241, 147, 6);
   margin: 0;
   font-family: sans-serif;
+}
+
+.wizard-card {
+  margin: 0 auto;
+  height: 500px;
+  width: 600px;
+  border: 4px;
+  border-color: rgb(0, 0, 0);
+  border-radius: 15%;
+  border-style: solid;
+  background-color: rgb(28, 225, 235);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#about {
+  border: 3px solid #0930de;
 }
 
 .navbar{
@@ -12,25 +33,38 @@ body {
   border-bottom: 1px solid #f2f2f2
 }
 
-.create-new-wizard{
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
+div.spell-item {
+  margin: 0 auto;
+  height: 200px;
+  width: 800px;
+  border: 4px;
+  border-color: rgb(0, 0, 0);
+  border-style: solid;
+  background-color: rgb(37, 37, 210);
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.wizard-card {
-  width: 320px;
-  padding: 10px;
-  border: 1px solid gray;
-  margin: 0;
+.wizard-name {
+  text-align: center; 
+  font-family: sans-serif;
+  font-style:oblique;
+  font-size: 40px;
+  position: relative;
+  bottom: 15px;
+  z-index: 0;
+  color: rgb(22, 75, 223);
+}
+
+.wizard-house {
   text-align: center;
-  display: left;
-}
-
-img.wizard-image {
-  justify-self: center;
-  height: 263px;
-  width: 350px;
+  font-family: sans-serif;
+  font-style:oblique;
+  font-size: 25px;
+  position: relative;
+  bottom: 15px;
+  z-index: 0;
+  color: rgb(28, 25, 12);
 }
 
 img.home {
@@ -41,29 +75,59 @@ img.home {
   border-radius: 8px;
 }
 
-.btn-group button {
-  background-color: #0465aa; 
-  border: 1px solid #0465aa; 
-  color: white; /* White text */
-  padding: 10px 10px; /* Some padding */
-  cursor: pointer; /* Pointer/hand icon */
-  float: left; /* Float the buttons side by side */
-  display: center;
-}
-/* Clear floats (clearfix hack) */
-.btn-group:after {
-  content: "";
-  clear: both;
-  display: table;
+img.wizard-image {
+  margin: auto;
+  display: block;
+  height: 250px;
+  width: 225px;
+  border-radius: 15%;
+  padding-top: 5px;
 }
 
-.btn-group button:not(:last-child) {
-  border-right: none; /* Prevent double borders */
+.button-container {
+  text-align: center;
+  position: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-/* Add a background color on hover */
-.btn-group button:hover {
-  background-color: #3e8e41;
+/* button.spell-details {
+  margin: 0 auto;
+  border: 2px;
+  border-style: solid;
+  border-radius: 25px;
+  text-align: center;
+  position: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+} */
+
+.spell-details:hover {
+  background-color: rgb(102, 7, 235);
+}
+
+button.edit-btn {
+  height: 30px;
+  width: 150px;
+  border: 2px;
+  border-style: solid;
+  border-radius: 25px;
+}
+
+.edit-btn:hover {
+  background-color: rgb(102, 7, 235);
+}
+
+button.del-btn {
+  height: 30px;
+  width: 100px;
+  border: 2px;
+  border-style: solid;
+  border-radius: 25px;
+}
+
+.del-btn:hover {
+  background-color: rgb(102, 7, 235);
 }
 
 .submit {
@@ -95,23 +159,17 @@ img.home {
 }
 
 p {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   margin-right: 80px;
   margin-left: 80px;
   font-size: 20px;
   text-align: justify;
+  color:#7c2e10;
 }
 
-p.wizard-card {
-  font-size: 20px;
-  text-align: left;
-  width: 350px;
-  margin: 0;
-}
-
-#about {
-  border: 3px solid #0930de;
+p.spell-item {
+  text-align: justify;
 }
 
 h1 {
@@ -122,17 +180,11 @@ h1 {
 }
 
 h2 {
-  color:#0930de;
-  margin: 0.5rem 0;
-  font-size: 30px;
-  text-align: left;
+  text-align: center;
 }
 
-h3 {
-  color:#f01111;
-  margin: 0.5rem 0;
-  font-size: 20px;
-  text-align: center;
+h2.spell-item {
+  text-align: justify;
 }
 
 h3.spell-item {
@@ -141,15 +193,27 @@ h3.spell-item {
   font-size: 20px;
   text-align: left;
 }
-li {
-  display: inline;
+
+.wizard-details {
+  margin: 0 auto;
+  height: 500px;
+  width: 600px;
+  border: 4px;
+  border-color: rgb(0, 0, 0);
+  border-radius: 15%;
+  border-style: solid;
+  background-color: rgb(28, 225, 235);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: center;
+  justify-content: center;
+  align-items: center;
 }
 
-/* div.spell-list {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-right: 80px;
-  margin-left: 80px;
-  font-size: 20px;
-} */
-
+.create-new-wizard{
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  display: center;
+  text-align: center;
+}

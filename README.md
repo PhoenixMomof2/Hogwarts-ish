@@ -115,9 +115,13 @@ collaborate, if you're working with a partner.
 - Use the [Network Tab in the Dev Tools][network tab] in the frontend to debug
   your requests.
 
+## Blog Link
+
+## Blog Photo Credit
+Photo by <a href="https://unsplash.com/@goodfacesagency?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Good Faces</a> on <a href="https://unsplash.com/images/stock/blogging?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
+
 ## Resources
-
-
 MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

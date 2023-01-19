@@ -1,33 +1,51 @@
-import React from 'react'
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-const WizardCard = ({wizard: {id, wizard_name, img_url, house_name, traits}}) => {
-
-  // CREATE A DELETE REQUEST FORMATTED SIMILAR TO THE POST SO IT INCLUDED THE SPELLS FOR DELETION AS WELL
-  const handleDeleteWizard = () => {
-    fetch(`http://localhost:9292/wizards/${id}`, {
-    method: "DELETE",
-    })
-    .then(console.log("Wizard Deleted"), window.load('http://localhost:3000/wizards'))
+const WizardCard = ({wizard, handleDeleteWizard}) => {
+  // handleEditWizard
+  
+  const history = useHistory();
+  
+  const handleCardClick = (id) => {
+    history.push(`/wizards/${id}`);
   }
-    
+
+  const handleDeleteWizardClick = (id) => {
+    fetch(`http://localhost:9292/wizards/${id}`, {
+    method: "DELETE", 
+    }).then(() => {
+      handleDeleteWizard(id);
+      history.push(`/wizards`);
+    // console.log("Deleted")
+    })
+  }
+
+  const handleEditWizardClick = (id) => {
+      history.push(`/wizards/${id}/edit`);
+    }
+
     return (
-      
-          <div key={id}>
-            <h2>{wizard_name}</h2>
-            <h3>House: {house_name}</h3>
-            <img
-              src={img_url}
-              alt={wizard_name}
-              className="wizard-image"
-            />
-            <p className="wizard-card">Traits: {traits}</p>
-            <div className="btn-group">
-              <button className="edit-btn" >Edit</button>
-              <button className="del-btn" onClick={handleDeleteWizard}>Delete</button>
-            </div>
-          </div>
-      
+      <React.Fragment>
+        <div className="wizard-card" key={wizard.id} onClick={() => {handleCardClick(wizard.id)}}>
+          <p className="wizard-name">Name: {wizard.wizard_name}</p>
+          <p className="wizard-house">House: {wizard.house_name}</p>
+          <img
+            src={wizard.img_url}
+            alt={wizard.wizard_name}
+            className="wizard-image"
+          />
+          <p><b>Traits:</b> {wizard.traits}</p>
+        </div>
+        <div className="button-container">
+          <button className="edit-btn" onClick={() => {handleEditWizardClick(wizard.id)}}>Edit Wizard Image</button>
+          <button className="del-btn" onClick={() => {handleDeleteWizardClick(wizard.id)}}>Delete</button>
+        </div>
+      </React.Fragment>
+       
+    
+     
+    
     );
 };
 
-export default WizardCard;  
+export default WizardCard;

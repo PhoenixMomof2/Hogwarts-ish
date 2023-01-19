@@ -2,14 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
-// import WizardCard from "./WizardCard";
 import WizardList from "./WizardList";
 import WizardForm from "./WizardForm"
 import SpellList from "./SpellList";
+import WizardDetails from "./WizardDetails"
+import UpdateWizardForm from "./UpdateWizardForm";
+
 
 const App = () => {
   const [wizards, setWizards] = useState([]);
   const [spells, setSpells] = useState([]);
+  // const [isPending, setIsPending] = useState(true);
   
   // GET REQUEST
   useEffect(() => {
@@ -26,33 +29,48 @@ const App = () => {
       .then((spells) => setSpells(spells));
   }, []);
 
+  // Updating wizards state with new wizard.
   function handleAddNewWizard(newWizard) {
-    setWizards([...wizards, newWizard]); // Updating wizards state.
+    setWizards([...wizards, newWizard]); 
   }
 
+  // Updating spells state with new spell.
   function handleAddNewSpell(newSpell) {
-    setSpells([...spells, newSpell]); // Updating spells state.
+    setSpells([...spells, newSpell]); 
+  }
+
+   // // Updating wizards state to delete wizard.
+   const handleDeleteWizard = (id) => {
+    const deletedWizard = wizards.filter(wizard => wizard.id !== id);
+    setWizards(deletedWizard);
+  }
+
+  // Updating wizards state to update wizard.
+  function handleEditWizard() {
+    setWizards(wizards.map(wizard => wizard.id === wizard.id ? wizard : wizard))
   }
 
   return (
-    <div className="App">
+    <div className="main">
       <NavBar />
       <Switch>
-        <Route exact path="/wizards">
-          <WizardList wizards={wizards} />
-        </Route>
-        {/* <Route exact path="/wizards/:id">
-          <WizardCard wizards={wizards} handleEditWizard={handleEditWizard} handleEditSpell={handleEditSpell} />
-        </Route> */}
-        <Route exact path="/spells">
-          {/* <SpellList spells={spells} handleEditSpell={handleEditSpell} handleDeleteSpell={handleDeleteSpell}/> */}
-          <SpellList spells={spells} />
+      <Route exact path="/home">
+          <Home />
         </Route>
         <Route exact path="/wizards/new"> 
           <WizardForm handleAddNewWizard={handleAddNewWizard} handleAddNewSpell={handleAddNewSpell} />
         </Route>
-        <Route exact path="/home">
-          <Home />
+        <Route exact path="/wizards">
+          <WizardList wizards={wizards} handleEditWizard={handleEditWizard} handleDeleteWizard={handleDeleteWizard}/>
+        </Route>
+        <Route exact path="/wizards/:id">
+        <WizardDetails wizards={wizards}/>
+        </Route>
+        <Route exact path="/wizards/:id/edit">
+          <UpdateWizardForm />
+        </Route>
+        <Route exact path="/spells">
+          <SpellList spells={spells} />
         </Route>
       </Switch>
     </div>

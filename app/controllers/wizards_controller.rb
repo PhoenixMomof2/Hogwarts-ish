@@ -6,8 +6,11 @@ class WizardsController < ApplicationController
     end
 
     get '/wizards/:id' do
-      wizards = Wizard.find(params[:id])
-      wizards.to_json(include: :spells)
+      wizard = Wizard.find(params[:id])
+      if wizard
+        wizard.to_json(include: :spells)
+      else "Error"
+      end
     end
 
     post '/wizards' do
@@ -33,7 +36,7 @@ class WizardsController < ApplicationController
         img_url: params[:img_url], 
         traits: params[:traits]
       )
-      wizard.to_json
+      wizard.to_json 
     end
 
 end
