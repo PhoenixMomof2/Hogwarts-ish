@@ -31,16 +31,18 @@ const UpdateWizardForm = ({handleEditWizard}) => {
           body: JSON.stringify(updateWizardData),
         })
           .then((res) => res.json())
-          .then(() => {
-            handleEditWizard(id);
+          .then((editedWizard) => {
+            handleEditWizard(editedWizard);
+            history.push(`/wizards/${id}`);
           })
-          history.push('./wizards')
+         
           // clear form
           setUpdate_Wizard_Name("");
           setUpdate_House_Name("");
           setUpdate_Img_Url("");
           setUpdate_Traits("");
-  };
+        }
+  
     
 return (
     <div>

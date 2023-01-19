@@ -5,7 +5,7 @@ Wizard.destroy_all
 Spell.destroy_all
 
 puts "Creating wizards..."
-harry = Wizard.create(wizard_name: "Harry Potter", img_url: "https://static.india.com/wp-content/uploads/2016/11/Harry-Potter-Main-Article-1.jpg", house_name: "Gryffindor", traits: "empathetic, awkward. stout")
+harry = Wizard.create(wizard_name: "Harry Potter", img_url: "https://static.india.com/wp-content/uploads/2016/11/Harry-Potter-Main-Article-1.jpg", house_name: "Gryffindor", traits: "empathetic, awkward, stout")
 ron = Wizard.create(wizard_name: "Ronald Weasley", img_url: "https://i.pinimg.com/originals/62/f8/ca/62f8ca6d85429db664a7fdd948207fb2.jpg", house_name: "Gryffindor", traits: "tempermental, awkward, cunning")
 hermione = Wizard.create(wizard_name: "Hermione Granger", img_url: "https://101bags.files.wordpress.com/2015/04/hermione.jpg", house_name: "Gryffindor", traits: "clever, cognitive, devoted")
 jenny = Wizard.create(wizard_name: "Jenny Weasley", img_url: "https://s2.r29static.com/bin/entry/2ed/0,0,280,336/960xbm,70/41414/image.jpg", house_name: "Gryffindor", traits: "fiesty, intelligent, ginger")

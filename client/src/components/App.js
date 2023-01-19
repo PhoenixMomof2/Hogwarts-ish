@@ -30,12 +30,12 @@ const App = () => {
   }, []);
 
   // Updating wizards state with new wizard.
-  function handleAddNewWizard(newWizard) {
+  const handleAddNewWizard = (newWizard) => {
     setWizards([...wizards, newWizard]); 
   }
 
   // Updating spells state with new spell.
-  function handleAddNewSpell(newSpell) {
+  const handleAddNewSpell = (newSpell) => {
     setSpells([...spells, newSpell]); 
   }
 
@@ -46,9 +46,10 @@ const App = () => {
   }
 
   // Updating wizards state to update wizard.
-  function handleEditWizard() {
-    setWizards(wizards.map(wizard => wizard.id === wizard.id ? wizard : wizard))
+  const handleEditWizard = (id) => {
+    setWizards(wizards.map((wizard) => (wizard.id === parseInt(id) ? wizard.id : wizard)));
   }
+
 
   return (
     <div className="main">
