@@ -165,11 +165,12 @@ p {
   margin-left: 80px;
   font-size: 20px;
   text-align: justify;
-  color:#7c2e10;
+  color:#040504;
 }
 
 p.spell-item {
   text-align: justify;
+  color:#e45d27;
 }
 
 h1 {
@@ -203,14 +204,32 @@ h3.spell-item {
   border-radius: 15%;
   border-style: solid;
   background-color: rgb(28, 225, 235);
-  padding-top: 10px;
+  padding-top: 20px;
   padding-bottom: 10px;
   display: center;
   justify-content: center;
   align-items: center;
 }
 
-.create-new-wizard{
+.create-new-wizard {
+  border: 4px;
+  border-color: rgb(0, 0, 0);
+  border-radius: 15%;
+  border-style: solid;
+  background-color: rgb(28, 225, 235);
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  display: center;
+  text-align: center;
+}
+
+.update-wizard-form {
+  border: 4px;
+  border-color: rgb(0, 0, 0);
+  border-radius: 15%;
+  border-style: solid;
+  background-color: rgb(28, 225, 235);
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;

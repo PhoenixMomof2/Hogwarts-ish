@@ -14,6 +14,7 @@ const SpellList = ({spells}) => {
             <p className="spell-item">Impact: {spell.spell_impact}</p>
             <p className="spell-item">Points: {spell.point_value}</p>
           </div>
+        
       ))}
     </div>
   );

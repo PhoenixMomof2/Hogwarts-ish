@@ -1,22 +1,22 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-const WizardDetails = ({wizard}) => {
-  const { id } = useParams();
-  //  const {id, wizard_name, house_name, img_url, traits} = wizard
+const WizardDetails = ({wizards}) => {
+  const { id } = useParams() 
+  const wiz = wizards.find(wizard => wizard.id === parseInt(id)) 
   
   return (
-    <div className="wizard-details" key={id}>
-      <h2>Wizard Details</h2>
-       <div className="wizard-card">
-          <p className="wizard-name">Name: {wizard.wizard_name}</p>
-          <p className="wizard-house">House: {wizard.house_name}</p>
+    <div>
+      <br/>
+       <div className="wizard-card" key={wiz.id}>
+          <p className="wizard-name">Name: {wiz.wizard_name}</p>
+          <p className="wizard-house">House: {wiz.house_name}</p>
           <img
-            src={wizard.img_url}
-            alt={wizard.wizard_name}
+            src={wiz.img_url}
+            alt={wiz.wizard_name}
             className="wizard-image"
           />
-          <p><b>Traits:</b> {wizard.traits}</p>
+          <p><b>Traits:</b> {wiz.traits}</p>
       </div>
     </div>
   )

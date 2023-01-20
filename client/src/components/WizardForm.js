@@ -52,7 +52,7 @@ const history = useHistory();
           })
             .then((res) => res.json())
             .then((newSpell) => handleAddNewSpell(newSpell)); // update state
-            history.push('/wizards')
+            history.push(`/wizards/${newWizard.id}`)
         });
       
         // clear form
@@ -66,7 +66,7 @@ const history = useHistory();
       };
 
   return (
-    <div className="create-new-wizard">
+    <div className="new-wizard">
       <br />
       <h2>Create A Wizard!</h2>
       <form className="create-new-wizard" onSubmit={handleSubmit}>

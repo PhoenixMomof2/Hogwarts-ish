@@ -46,8 +46,9 @@ const App = () => {
   }
 
   // Updating wizards state to update wizard.
-  const handleEditWizard = (id) => {
-    setWizards(wizards.map((wizard) => (wizard.id === parseInt(id) ? wizard.id : wizard)));
+  const handleEditWizard = (updatedWizard) => {
+    const updatedWizards = wizards.map((wizard) => (wizard.id === updatedWizard.id ? updatedWizard : wizard))
+    setWizards(updatedWizards);
   }
 
 
@@ -65,10 +66,10 @@ const App = () => {
           <WizardList wizards={wizards} handleEditWizard={handleEditWizard} handleDeleteWizard={handleDeleteWizard}/>
         </Route>
         <Route exact path="/wizards/:id">
-        <WizardDetails wizards={wizards}/>
+            <WizardDetails wizards={wizards}/>
         </Route>
         <Route exact path="/wizards/:id/edit">
-          <UpdateWizardForm />
+          <UpdateWizardForm wizards={wizards} handleEditWizard={handleEditWizard}/>
         </Route>
         <Route exact path="/spells">
           <SpellList spells={spells} />

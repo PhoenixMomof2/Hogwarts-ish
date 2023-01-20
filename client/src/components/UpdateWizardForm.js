@@ -1,27 +1,28 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 
-const UpdateWizardForm = ({handleEditWizard}) => {
+const UpdateWizardForm = ({wizards, handleEditWizard}) => {
   
-  const [update_wizard_name, setUpdate_Wizard_Name] = useState("");
-  const [update_house_name, setUpdate_House_Name] = useState("");
-  const [update_img_url, setUpdate_Img_Url] = useState("");
-  const [update_traits, setUpdate_Traits] = useState("");
-  const { id } = useParams();
-  console.log(id)
   const history = useHistory();
+  const { id } = useParams();
+  const wiz = wizards.find(wizard => wizard.id === parseInt(id)) 
+ 
+  const [wizard_name, setWizard_Name] = useState("")
+  const [house_name, setHouse_Name] = useState("");
+  const [img_url, setImg_Url] = useState("");
+  const [traits, setTraits] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const updateWizardData = {
-      wizard_name: update_wizard_name,
-      house_name: update_house_name,
-      img_url: update_img_url,
-      traits: update_traits,
+      wizard_name,
+      house_name,
+      img_url,
+      traits,
     };
     console.log(updateWizardData);
-    
+
     //UPDATE (PATCH REQUEST)
     fetch(`http://localhost:9292/wizards/${id}`, {
           method: "PATCH",
@@ -31,32 +32,32 @@ const UpdateWizardForm = ({handleEditWizard}) => {
           body: JSON.stringify(updateWizardData),
         })
           .then((res) => res.json())
-          .then((editedWizard) => {
-            handleEditWizard(editedWizard);
+          .then((data) => {
+            handleEditWizard(data);
             history.push(`/wizards/${id}`);
           })
-         
-          // clear form
-          setUpdate_Wizard_Name("");
-          setUpdate_House_Name("");
-          setUpdate_Img_Url("");
-          setUpdate_Traits("");
+          
+          //clear form
+          setWizard_Name("");
+          setHouse_Name("");
+          setImg_Url("");
+          setTraits("");
         }
   
     
 return (
     <div>
       <div className="update-form-container">
-        <h3>Update a wizard!</h3>
+        <h2>Update a wizard!</h2>
           <form className="update-wizard-form" onSubmit={handleSubmit}>
           <div>
           <label htmlFor="update-wizard-name">Wizard Name   </label>
           <input
             type="text"
-            id="update-wizard-name"
+            id="wizard-name"
             placeholder="Enter Wizard Name"
-            value={update_wizard_name}
-            onChange={(e) => setUpdate_Wizard_Name(e.target.value)}
+            defaultValue={wiz.wizard_name}
+            onChange={(e) => setWizard_Name(e.target.value)}
           />
           </div>
           <br />
@@ -65,8 +66,8 @@ return (
           <select
             type="text"
             id="update-assign-house"
-            value={update_house_name}
-            onChange={(e) => setUpdate_House_Name(e.target.value)}
+            defaultValue={wiz.house_name}
+            onChange={(e) => setHouse_Name(e.target.value)}
             >
             <option house_name="Gryffindor">   Gryffindor</option>
             <option house_name="Hufflepuff">   Hufflepuff</option>
@@ -81,8 +82,8 @@ return (
             type="text"
             id="update-img_url"
             placeholder="Enter Image Source"
-            value={update_img_url}
-            onChange={(e) => setUpdate_Img_Url(e.target.value)}
+            defaultValue={wiz.img_url}
+            onChange={(e) => setImg_Url(e.target.value)}
           />
         </div>
         <br />
@@ -92,8 +93,8 @@ return (
             type="text"
             id="update-traits"
             placeholder="Enter New Wizard Traits"
-            value={update_traits}
-            onChange={(e) => setUpdate_Traits(e.target.value)}
+            defaultValue={wiz.traits}
+            onChange={(e) => setTraits(e.target.value)}
           />
         </div>
           <br />
