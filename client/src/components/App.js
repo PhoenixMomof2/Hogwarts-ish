@@ -63,10 +63,10 @@ const App = () => {
           <WizardForm handleAddNewWizard={handleAddNewWizard} handleAddNewSpell={handleAddNewSpell} />
         </Route>
         <Route exact path="/wizards">
-          <WizardList wizards={wizards} handleEditWizard={handleEditWizard} handleDeleteWizard={handleDeleteWizard}/>
+          <WizardList wizards={wizards} spells={spells} handleEditWizard={handleEditWizard} handleDeleteWizard={handleDeleteWizard}/>
         </Route>
         <Route exact path="/wizards/:id">
-            <WizardDetails wizards={wizards}/>
+            <WizardDetails wizards={wizards} spells={spells}/>
         </Route>
         <Route exact path="/wizards/:id/edit">
           <UpdateWizardForm wizards={wizards} handleEditWizard={handleEditWizard}/>

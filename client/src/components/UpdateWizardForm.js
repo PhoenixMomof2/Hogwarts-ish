@@ -21,7 +21,7 @@ const UpdateWizardForm = ({wizards, handleEditWizard}) => {
       img_url,
       traits,
     };
-    console.log(updateWizardData);
+    // console.log(updateWizardData);
 
     //UPDATE (PATCH REQUEST)
     fetch(`http://localhost:9292/wizards/${id}`, {
@@ -44,7 +44,6 @@ const UpdateWizardForm = ({wizards, handleEditWizard}) => {
           setTraits("");
         }
   
-    
 return (
     <div>
       <div className="update-form-container">

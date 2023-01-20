@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-const WizardCard = ({wizard, handleDeleteWizard}) => {
+const WizardCard = ({wizard, handleDeleteWizard, spells}) => {
   // handleEditWizard
   
   const history = useHistory();
@@ -27,7 +27,7 @@ const WizardCard = ({wizard, handleDeleteWizard}) => {
     return (
       <React.Fragment>
         <div className="wizard-card" key={wizard.id} onClick={() => {handleCardClick(wizard.id)}}>
-          <p className="wizard-name">Name: {wizard.wizard_name}</p>
+          <p className="wizard-name">{wizard.wizard_name}</p>
           <p className="wizard-house">House: {wizard.house_name}</p>
           <img
             src={wizard.img_url}
@@ -41,10 +41,6 @@ const WizardCard = ({wizard, handleDeleteWizard}) => {
           <button className="del-btn" onClick={() => {handleDeleteWizardClick(wizard.id)}}>Delete</button>
         </div>
       </React.Fragment>
-       
-    
-     
-    
     );
 };
 

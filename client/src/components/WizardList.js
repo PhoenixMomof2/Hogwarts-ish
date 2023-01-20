@@ -1,7 +1,7 @@
 import React from 'react'
 import WizardCard from './WizardCard'
 
-function WizardList({wizards, handleEditWizard, handleDeleteWizard }) {
+function WizardList({wizards, handleEditWizard, handleDeleteWizard, spells }) {
 
   return (
     // history.push(`/wizards/${id}`)
