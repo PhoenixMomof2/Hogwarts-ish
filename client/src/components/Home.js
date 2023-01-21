@@ -6,7 +6,7 @@ const Home = () => {
     <div>
       <h1>Hogwarts-Ish</h1>
       <hr/>
-      <p>The game of spells and charms where Hogwarts students can practice the art of the duel alongside some of their professors against some of the most deplorable, yet skilled nemesis.</p>
+      <p>The game of spells and charms where Hogwarts students can practice the art of the duel alongside their professors and their archenemies.</p>
       <img className="home" src={image} alt="drawing-of-mcgonagall-dueling"/>
     </div>
   )

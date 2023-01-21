@@ -1,36 +1,33 @@
-# Phase 3 Project Guidelines
+# NAME OF PROJECT 
+Hogwarts-Ish (Phase 3 Project)
 
-## Learning Goals
+## Description 
+Description
 
-- Build a web basic API with Sinatra and Active Record to support a React
-  frontend
+## Visuals (Demo of App)
+https://youtu.be/Lpn5gzCd7Cs
 
-## Introduction
 
-Congrats on getting through all the material for Phase 3! Now's the time to put
-it all together and build something from scratch to reinforce what you know and
-expand your horizons.
+## Installation
+This project was built with a Sinatra API backend that uses Active Record to access and persist data in a database, which will be used by a separate **React frontend** that interacts with the database via the API.
 
-The focus of this project is **building a Sinatra API backend** that uses
-**Active Record** to access and persist data in a database, which will be used
-by a separate **React frontend** that interacts with the database via the API.
+## Details
 
-## Requirements
-
-For this project, you must:
+For this project:
 
 - Use Active Record to interact with a database.
-- Have at least two models with a one-to-many relationship.
-- At a minimum, set up the following API routes in Sinatra:
-  - create and read actions for both models
-  - full CRUD capability for one of the models
-- Build a separate React frontend application that interacts with the API to
-  perform CRUD actions.
-- Implement proper front end state management. You should be updating state using a
-  setState function after receiving your response from a POST, PATCH, or DELETE 
-  request. You should NOT be relying on a GET request to update state. 
-- Use good OO design patterns. You should have separate classes for each of your
-  models, and create instance and class methods as necessary. 
+- There are two models with a one-to-many relationship. One *wizard* to many *spells*.
+- The Spells model has create and read actions.
+- The Wizards model contains full CRUD capabilities.
+  --- Includes all 7 RESTful routes: Index, New, Create, Show, Edit, Update, and Destroy. 
+      **Index** /wizards (GET)
+      **New** /wizards/new (GET)
+      **Create** /wizards (POST)
+      **Show** /wizards/:id (GET) 
+      **Edit** /wizards/:id/edit (GET)
+      **Update** /wizards/:id (PATCH)
+      **Delete** /wizards/:id (DELETE)
+
 - Routes in your application (both client side and back end) should follow RESTful
   conventions.
 - Use your back end optimally. Pass JSON for related associations to the front 
@@ -42,80 +39,41 @@ For this project, you must:
 For example, build a todo list application with a React frontend interface and a
 Sinatra backend API, where a user can:
 
-- **Create** a new todo
-- **Read** a list of all todos
-- **Update** an individual todo
-- **Delete** a todo
 
-A `Todo` can be tagged with a `Category`, so that each todo _belongs to_ a
-category and each category _has many_ todos.
 
 ## Getting Started
+The frontend and backend for this project are located in the same repository.  The frontend can be accessed by cd-ing into the client folder.  The backend can be accessed from the root directory.
 
 ### Backend Setup
 
-This repository has all the starter code needed to get a Sinatra backend up and
-running. [**Fork and clone**][fork link] this repository to get started. Then, run
-`bundle install` to install the gems.
+To explore the Hogwarts-Ish app, [**Fork and clone**] this repository from the following link to get started:
 
-**Important**: Be sure you fork a copy of the repo into your GitHub account
-before cloning it. You can do this by using the link above or by clicking the
-"Octocat" button at the top of this page, then clicking "Fork" in the upper
-right corner of the repo page.
+[fork link]: https://github.com/PhoenixMomof2/Hogwarts-ish.git
 
-[fork link]: https://github.com/learn-co-curriculum/phase-3-sinatra-react-project/fork
+Then, run `bundle install` to install the gems.
 
-The `app/controllers/application_controller.rb` file has an example GET route
-handler. Replace this route with routes for your project.
-
-You can start your server with:
+You can start the server with:
 
 ```console
-$ bundle exec rake server
+$ bundle exec rake serverWell
 ```
 
-This will run your server on port
+This will run the server on port
 [http://localhost:9292](http://localhost:9292).
 
 ### Frontend Setup
 
-Your backend and your frontend should be in **two different repositories**.
-
-Create a new repository in a **separate folder** with a React app for your
-frontend. To do this, `cd` out of the backend project directory, and use
-[create-react-app][] to generate the necessary code for your React frontend:
-
-```console
-$ npx create-react-app my-app-frontend
-```
-
-After creating the project locally, you should also
-[create a repository on GitHub][create repo] to host your repo and help
-collaborate, if you're working with a partner.
-
-### Fetch Example
+The frontend is in a **separate folder** named: client.  To get it running, cd into the client directory and run *npm start* to open the app in the following port:
+[http://localhost:3000](http://localhost:3000).
 
 
-
-
-## Project Tips
-
-- This project is intended to focus more on the backend than the frontend, so
-  try and keep the React side of things relatively simple. Focus on working with
-  Active Record and performing CRUD actions. What are some interesting queries you can write? What kinds of questions can you ask of your data?
-- Once you have a project idea, come up with a domain model and decide what
-  relationships exist between the models in your application. Use a tool like
-  [dbdiagram.io][] to help visualize your models.
-- Decide on your API endpoints. What data should they return? What kind of CRUD
-  action should they perform? What data do they need from the client?
-- Use [Postman][postman download] to test your endpoints.
-- Use `binding.pry` to debug your requests on the server. It's very helpful to use a
-  `binding.pry` in your controller within a route to see what `params` are being
-  sent.
-- Use the [Network Tab in the Dev Tools][network tab] in the frontend to debug
-  your requests.
+## Roadmap Stretch Goals
+1 - While I was hoping to make this a wizards dueling game, I didn't get that far.  For now, this is the starter code to that idea.  Since, wizards have spells and the spells have point values, I know I can get it there with time.
+2 - Create instance and class methods to perform different manipulations of the data for increased functionality. 
+3 - Add animation.
 
 ## Blog Link
+https://dev.to/phoenixmomof2/creating-query-methods-active-record-2na4
 
 ## Blog Photo Credit
 Photo by <a href="https://unsplash.com/@goodfacesagency?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Good Faces</a> on <a href="https://unsplash.com/images/stock/blogging?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -143,3 +101,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 Copyright (c) 2023 Kandis Arzu-Thompson 
+
+https://static.india.com/wp-content/uploads/2016/11/Harry-Potter-Main-Article-1.jpg
+
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoBg7bvvrzMvTWupKkiLor-hroosz_OJdsjA&usqp=CAU
+

@@ -5,6 +5,7 @@ const UpdateWizardForm = ({wizards, handleEditWizard}) => {
   
   const history = useHistory();
   const { id } = useParams();
+  // eslint-disable-next-line
   const wiz = wizards.find(wizard => wizard.id === parseInt(id)) 
  
   const [wizard_name, setWizard_Name] = useState("")

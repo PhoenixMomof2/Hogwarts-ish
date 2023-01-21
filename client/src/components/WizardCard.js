@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 const WizardCard = ({wizard, handleDeleteWizard, spells}) => {
   // handleEditWizard
   
-  const history = useHistory();
+  const history = useHistory();                                          
   
   const handleCardClick = (id) => {
     history.push(`/wizards/${id}`);
@@ -37,7 +37,7 @@ const WizardCard = ({wizard, handleDeleteWizard, spells}) => {
           <p><b>Traits:</b> {wizard.traits}</p>
         </div>
         <div className="button-container">
-          <button className="edit-btn" onClick={() => {handleEditWizardClick(wizard.id)}}>Edit Wizard Image</button>
+          <button className="edit-btn" onClick={() => {handleEditWizardClick(wizard.id)}}>Edit</button>
           <button className="del-btn" onClick={() => {handleDeleteWizardClick(wizard.id)}}>Delete</button>
         </div>
       </React.Fragment>

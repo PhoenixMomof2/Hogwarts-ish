@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom';
 
 
 const WizardDetails = ({wizards, spells}) => {
+  
   const { id } = useParams() 
+  // eslint-disable-next-line
   const wiz = wizards.find(wizard => wizard.id === parseInt(id)) 
-  // debugger
   const wiz_spells = spells.filter(spell => spell.wizard_id === wiz.id)
 
   return (
