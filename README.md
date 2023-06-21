@@ -55,7 +55,7 @@ Then, run `bundle install` to install the gems.
 You can start the server with:
 
 ```console
-$ bundle exec rake serverWell
+$ bundle exec rake server
 ```
 
 This will run the server on port

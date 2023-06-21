@@ -1,4 +1,4 @@
-puts "🌱 Seeding spices..."
+puts "🌱 Seeding..."
 
 puts "Deleting Wizard/Spell data...."
 Wizard.destroy_all

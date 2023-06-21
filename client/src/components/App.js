@@ -8,7 +8,6 @@ import SpellList from "./SpellList";
 import WizardDetails from "./WizardDetails"
 import UpdateWizardForm from "./UpdateWizardForm";
 
-
 const App = () => {
   const [wizards, setWizards] = useState([]);
   const [spells, setSpells] = useState([]);
@@ -51,30 +50,29 @@ const App = () => {
     setWizards(updatedWizards);
   }
 
-
   return (
     <div className="main">
       <NavBar />
-      <Switch>
-      <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/wizards/new"> 
-          <WizardForm handleAddNewWizard={handleAddNewWizard} handleAddNewSpell={handleAddNewSpell} />
-        </Route>
-        <Route exact path="/wizards">
-          <WizardList wizards={wizards} spells={spells} handleEditWizard={handleEditWizard} handleDeleteWizard={handleDeleteWizard}/>
-        </Route>
-        <Route exact path="/wizards/:id">
-            <WizardDetails wizards={wizards} spells={spells}/>
-        </Route>
-        <Route exact path="/wizards/:id/edit">
-          <UpdateWizardForm wizards={wizards} handleEditWizard={handleEditWizard}/>
-        </Route>
-        <Route exact path="/spells">
-          <SpellList spells={spells} />
-        </Route>
-      </Switch>
+        <Switch>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/wizards/new"> 
+            <WizardForm handleAddNewWizard={handleAddNewWizard} handleAddNewSpell={handleAddNewSpell} />
+          </Route>
+          <Route exact path="/wizards">
+            <WizardList wizards={wizards} spells={spells} handleEditWizard={handleEditWizard} handleDeleteWizard={handleDeleteWizard}/>
+          </Route>
+          <Route exact path="/wizards/:id">
+              <WizardDetails wizards={wizards} spells={spells}/>
+          </Route>
+          <Route exact path="/wizards/:id/edit">
+            <UpdateWizardForm wizards={wizards} handleEditWizard={handleEditWizard}/>
+          </Route>
+          <Route exact path="/spells">
+            <SpellList spells={spells} />
+          </Route>
+        </Switch>
     </div>
   );
 };

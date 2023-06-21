@@ -6,6 +6,7 @@ const WizardDetails = ({wizards, spells}) => {
   
   const { id } = useParams() 
   // eslint-disable-next-line
+  // debugger
   const wiz = wizards.find(wizard => wizard.id === parseInt(id)) 
   const wiz_spells = spells.filter(spell => spell.wizard_id === wiz.id)
 

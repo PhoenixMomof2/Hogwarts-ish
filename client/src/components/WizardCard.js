@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 const WizardCard = ({wizard, handleDeleteWizard, spells}) => {
   // handleEditWizard
   
-  const history = useHistory();                                          
-  
+  const history = useHistory();        
+                                   
   const handleCardClick = (id) => {
     history.push(`/wizards/${id}`);
   }
@@ -22,7 +22,7 @@ const WizardCard = ({wizard, handleDeleteWizard, spells}) => {
 
   const handleEditWizardClick = (id) => {
       history.push(`/wizards/${id}/edit`);
-    }
+  }
 
     return (
       <React.Fragment>
